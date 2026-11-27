@@ -1,0 +1,7 @@
+
+  ✅  QUREO Solver is running
+  🌐  http://localhost:3000
+
+  Press Ctrl+C to stop.
+
+^C

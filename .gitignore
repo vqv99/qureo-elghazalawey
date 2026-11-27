@@ -1,0 +1,40 @@
+# ── Dependencies ──────────────────────────────────────────────
+node_modules/
+package-lock.json
+
+# ── Runtime data ──────────────────────────────────────────────
+data.json
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log
+*.txt
+
+# ── Local scripts (Windows only - not needed on server) ───────
+*.bat
+*.cmd
+
+# ── Compressed files ──────────────────────────────────────────
+*.rar
+*.zip
+*.tar
+*.gz
+
+# ── Sensitive / local only ────────────────────────────────────
+solver-error.png
+*.png
+*.jpg
+
+# ── Arabic PDF/MD answer guides (private - don't upload) ──────
+إرشادات_التمارين_البرمجة.md
+إرشادات تطبيقات البرمجة والذكاء الاصطناعي.pdf
+
+# ── OS files ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Editor files ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user

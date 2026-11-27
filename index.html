@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#05080c">
+  <title>QUREO Elghazalawy</title>
+  <script>if (/^\/vip0101\/?$/.test(location.pathname)) document.documentElement.classList.add('vip-mode');</script>
+  <script src="/theme.js?v=2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=23">
+  <style>
+    #vip-root { display: none; }
+    .vip-mode #public-site { display: none !important; }
+    .vip-mode #vip-root { display: block; }
+    .vip-mode body { margin: 0; min-height: 100vh; background: #070a12; color: #f4f7ff; font-family: "Cairo", system-ui, sans-serif; }
+    #vip-root { --vip-bg: #070a12; --vip-panel: rgba(17, 23, 38, .82); --vip-line: rgba(148, 163, 184, .14); --vip-muted: #8e9ab2; --vip-purple: #8b5cf6; --vip-blue: #38bdf8; --vip-green: #34d399; --vip-red: #fb7185; min-height: 100vh; position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(circle at 85% -10%, rgba(124, 58, 237, .16), transparent 32%), radial-gradient(circle at 0% 90%, rgba(14, 165, 233, .09), transparent 32%), #070a12; }
+    #vip-root * { box-sizing: border-box; }
+    #vip-root button, #vip-root input, #vip-root select { font: inherit; }
+    #vip-root button { cursor: pointer; }
+    #vip-root button:disabled { cursor: wait; opacity: .6; }
+    #vip-root .vip-hidden { display: none !important; }
+    #vip-root .vip-orb { position: fixed; z-index: -1; width: 380px; height: 380px; border-radius: 50%; filter: blur(100px); opacity: .2; pointer-events: none; }
+    #vip-root .vip-orb-one { top: -180px; right: -120px; background: #7c3aed; }
+    #vip-root .vip-orb-two { bottom: -200px; left: -120px; background: #0284c7; }
+    #vip-root .vip-gate { min-height: 100vh; display: grid; place-items: center; padding: 28px 18px; }
+    #vip-root .vip-login-card { width: min(460px, 100%); position: relative; overflow: hidden; padding: 42px; border: 1px solid var(--vip-line); border-radius: 28px; background: linear-gradient(145deg, rgba(22, 28, 46, .96), rgba(10, 14, 25, .96)); box-shadow: 0 35px 100px rgba(0, 0, 0, .48); }
+    #vip-root .vip-login-card::before { content: ""; position: absolute; top: 0; right: 12%; left: 12%; height: 1px; background: linear-gradient(90deg, transparent, #a78bfa, transparent); }
+    #vip-root .vip-login-logo { width: 72px; height: 72px; display: grid; place-items: center; position: relative; margin-bottom: 28px; border-radius: 22px; background: linear-gradient(135deg, #8b5cf6, #4f46e5); color: #fff; font: 700 34px "Space Grotesk", sans-serif; box-shadow: 0 16px 45px rgba(124, 58, 237, .35); }
+    #vip-root .vip-login-logo small { position: absolute; bottom: -8px; left: -8px; padding: 3px 8px; border: 2px solid #111726; border-radius: 7px; background: #fbbf24; color: #201500; font: 800 9px "Space Grotesk", sans-serif; letter-spacing: .08em; }
+    #vip-root .vip-kicker { margin: 0 0 9px; color: #a78bfa; font: 700 10px "Space Grotesk", "Cairo", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+    #vip-root .vip-login-card h1 { margin: 0; font-size: 34px; line-height: 1.35; }
+    #vip-root .vip-login-card h1 span { color: #a78bfa; }
+    #vip-root .vip-login-copy { margin: 10px 0 28px; color: var(--vip-muted); font-size: 13px; line-height: 1.9; }
+    #vip-root .vip-field { display: grid; gap: 8px; margin-bottom: 16px; }
+    #vip-root .vip-field > label, #vip-root .vip-label { color: #b9c3d6; font-size: 12px; font-weight: 700; }
+    #vip-root .vip-input, #vip-root .vip-select { width: 100%; height: 50px; padding: 0 15px; border: 1px solid var(--vip-line); border-radius: 13px; outline: none; background: rgba(5, 9, 18, .68); color: #f4f7ff; transition: border-color .18s, box-shadow .18s, background .18s; }
+    #vip-root .vip-input::placeholder { color: #566078; }
+    #vip-root .vip-input:focus, #vip-root .vip-select:focus { border-color: rgba(139, 92, 246, .75); background: rgba(8, 12, 23, .95); box-shadow: 0 0 0 4px rgba(139, 92, 246, .1); }
+    #vip-root .vip-select { cursor: pointer; }
+    #vip-root .vip-select option { background: #111726; }
+    #vip-root .vip-password { position: relative; }
+    #vip-root .vip-password .vip-input { padding-left: 64px; }
+    #vip-root .vip-reveal { position: absolute; left: 7px; top: 7px; height: 36px; padding: 0 10px; border: 0; border-radius: 9px; background: transparent; color: #8e9ab2; font-size: 10px; }
+    #vip-root .vip-reveal:hover { background: rgba(255, 255, 255, .05); color: #fff; }
+    #vip-root .vip-primary { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 22px; border: 0; border-radius: 13px; background: linear-gradient(135deg, #8b5cf6, #6366f1); color: #fff; font-weight: 800; box-shadow: 0 12px 30px rgba(99, 102, 241, .22); transition: transform .18s, filter .18s; }
+    #vip-root .vip-primary:hover:not(:disabled) { transform: translateY(-1px); filter: brightness(1.08); }
+    #vip-root .vip-full { width: 100%; }
+    #vip-root .vip-login-features { display: flex; justify-content: center; gap: 18px; margin-top: 25px; padding-top: 22px; border-top: 1px solid var(--vip-line); color: #77839a; font-size: 10px; }
+    #vip-root .vip-login-features span::before { content: "✓"; margin-left: 5px; color: var(--vip-green); }
+    #vip-root .vip-buy-hint { margin: 16px 0 0; text-align: center; color: #77839a; font-size: 11px; }
+    #vip-root .vip-buy-hint a { color: #a78bfa; font-weight: 800; text-decoration: none; }
+    #vip-root .vip-buy-hint a:hover { text-decoration: underline; }
+    #vip-root .vip-message { min-height: 20px; margin: 10px 0 0; color: var(--vip-green); font-size: 11px; line-height: 1.7; }
+    #vip-root .vip-message.vip-error { color: var(--vip-red); }
+    #vip-root .vip-page { width: min(1240px, calc(100% - 40px)); margin: 0 auto; padding: 24px 0 38px; }
+    #vip-root .vip-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 44px; }
+    #vip-root .vip-brand { display: flex; align-items: center; gap: 12px; }
+    #vip-root .vip-brand-mark { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; background: linear-gradient(135deg, #8b5cf6, #4f46e5); font: 700 22px "Space Grotesk", sans-serif; box-shadow: 0 10px 30px rgba(124, 58, 237, .25); }
+    #vip-root .vip-brand strong { display: block; font-size: 16px; }
+    #vip-root .vip-brand small { display: block; margin-top: 2px; color: var(--vip-muted); font: 600 9px "Space Grotesk", sans-serif; letter-spacing: .12em; }
+    #vip-root .vip-header-actions { display: flex; align-items: center; gap: 10px; }
+    #vip-root .vip-account-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid var(--vip-line); border-radius: 12px; background: rgba(255, 255, 255, .03); color: #c8d1e2; font-size: 11px; }
+    #vip-root .vip-account-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--vip-green); box-shadow: 0 0 12px rgba(52, 211, 153, .6); }
+    #vip-root .vip-secondary { min-height: 40px; padding: 0 14px; border: 1px solid var(--vip-line); border-radius: 12px; background: rgba(255, 255, 255, .035); color: #b9c3d6; font-size: 11px; font-weight: 700; transition: background .15s, color .15s; }
+    #vip-root .vip-secondary:hover:not(:disabled) { background: rgba(255, 255, 255, .07); color: #fff; }
+    #vip-root .vip-hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+    #vip-root .vip-hero h1 { margin: 0; font-size: clamp(26px, 4vw, 38px); line-height: 1.4; }
+    #vip-root .vip-hero h1 span { color: #a78bfa; }
+    #vip-root .vip-hero-copy { margin: 8px 0 0; color: var(--vip-muted); font-size: 12px; }
+    #vip-root .vip-no-queue { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid rgba(52, 211, 153, .18); border-radius: 999px; background: rgba(52, 211, 153, .07); color: #6ee7b7; font-size: 11px; font-weight: 700; }
+    #vip-root .vip-no-queue::before { content: "⚡"; }
+    #vip-root .vip-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+    #vip-root .vip-stat { position: relative; overflow: hidden; padding: 20px 22px; border: 1px solid var(--vip-line); border-radius: 18px; background: rgba(17, 23, 38, .64); }
+    #vip-root .vip-stat strong { display: block; margin-bottom: 5px; font: 700 28px "Space Grotesk", "Cairo", sans-serif; }
+    #vip-root .vip-stat span { color: var(--vip-muted); font-size: 11px; }
+    #vip-root .vip-stat i { position: absolute; top: 20px; left: 20px; width: 9px; height: 9px; border-radius: 50%; background: #6366f1; box-shadow: 0 0 18px currentColor; }
+    #vip-root .vip-stat:first-child i { background: var(--vip-green); }
+    #vip-root .vip-stat:last-child i { background: var(--vip-blue); }
+    #vip-root .vip-layout { display: grid; grid-template-columns: minmax(340px, .85fr) minmax(0, 1.15fr); gap: 18px; align-items: stretch; }
+    #vip-root .vip-panel { border: 1px solid var(--vip-line); border-radius: 20px; background: var(--vip-panel); box-shadow: 0 18px 55px rgba(0, 0, 0, .14); backdrop-filter: blur(18px); }
+    #vip-root .vip-solve-panel { padding: 24px; }
+    #vip-root .vip-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 22px; }
+    #vip-root .vip-panel-heading h2 { margin: 0; font-size: 16px; }
+    #vip-root .vip-panel-heading p { margin: 4px 0 0; color: var(--vip-muted); font-size: 10px; }
+    #vip-root .vip-step { width: 31px; height: 31px; display: grid; place-items: center; border: 1px solid rgba(139, 92, 246, .22); border-radius: 10px; background: rgba(139, 92, 246, .08); color: #a78bfa; font: 700 11px "Space Grotesk", sans-serif; }
+    #vip-root .vip-two-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    #vip-root .vip-track-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; padding: 5px; border: 1px solid var(--vip-line); border-radius: 13px; background: rgba(4, 8, 16, .45); }
+    #vip-root .vip-track { height: 38px; border: 0; border-radius: 9px; background: transparent; color: var(--vip-muted); font-size: 12px; font-weight: 800; }
+    #vip-root .vip-track.vip-active { background: #20283c; color: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .16); }
+    #vip-root .vip-inline-note { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; color: #7d899f; font-size: 10px; line-height: 1.7; }
+    #vip-root .vip-inline-note::before { content: "●"; color: var(--vip-green); font-size: 8px; }
+    #vip-root .vip-live-panel { min-width: 0; display: flex; flex-direction: column; padding: 24px; }
+    #vip-root .vip-live-dot { display: inline-flex; align-items: center; gap: 6px; color: var(--vip-green); font-size: 10px; }
+    #vip-root .vip-live-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: vip-pulse 1.8s infinite; }
+    @keyframes vip-pulse { 50% { opacity: .35; } }
+    #vip-root .vip-log { flex: 1; min-height: 320px; max-height: 460px; overflow: auto; margin: 0; padding: 18px; border: 1px solid rgba(148, 163, 184, .09); border-radius: 14px; background: rgba(3, 7, 14, .72); color: #9aa9c2; font: 11px/1.8 ui-monospace, Consolas, monospace; white-space: pre-wrap; word-break: break-word; direction: ltr; text-align: left; }
+    #vip-root .vip-admin-panel { margin-top: 18px; padding: 24px; }
+    #vip-root .vip-admin-badge { padding: 4px 9px; border-radius: 999px; background: rgba(251, 191, 36, .09); color: #fbbf24; font-size: 9px; }
+    #vip-root .vip-account-form { display: grid; grid-template-columns: 1.2fr 1.2fr .55fr .65fr auto; gap: 10px; align-items: end; padding-bottom: 22px; border-bottom: 1px solid var(--vip-line); }
+    #vip-root .vip-account-form .vip-field { margin: 0; }
+    #vip-root .vip-account-form .vip-primary { height: 50px; }
+    #vip-root .vip-limit-input { width: 76px !important; height: 38px !important; text-align: center; }
+    #vip-root .vip-max-accounts-input { width: 92px !important; }
+    #vip-root .vip-bulk-panel { margin-top: 18px; padding: 24px; }
+    #vip-root .vip-bulk-input { width: 100%; min-height: 190px; resize: vertical; padding: 14px; border: 1px solid var(--vip-line); border-radius: 13px; outline: none; background: rgba(5, 9, 18, .68); color: #f4f7ff; font: 12px/1.8 ui-monospace, Consolas, monospace; direction: ltr; text-align: left; }
+    #vip-root .vip-bulk-input:focus { border-color: rgba(139, 92, 246, .75); box-shadow: 0 0 0 4px rgba(139, 92, 246, .1); }
+    #vip-root .vip-bulk-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    #vip-root .vip-bulk-results { display: grid; gap: 7px; margin-top: 14px; }
+    #vip-root .vip-bulk-row { display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; border: 1px solid rgba(148, 163, 184, .1); border-radius: 10px; background: rgba(255, 255, 255, .025); font-size: 11px; }
+    #vip-root .vip-bulk-row code { color: #c4b5fd; direction: ltr; }
+    #vip-root .vip-bulk-row small { color: var(--vip-muted); text-align: left; }
+    #vip-root .vip-admin-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    #vip-root .vip-admin-tab { height: 40px; padding: 0 16px; border: 1px solid var(--vip-line); border-radius: 11px; background: rgba(255, 255, 255, .03); color: #b9c3d6; font-size: 11px; font-weight: 800; }
+    #vip-root .vip-admin-tab:hover { border-color: rgba(139, 92, 246, .5); }
+    #vip-root .vip-admin-tab.vip-on { background: linear-gradient(135deg, #8b5cf6, #6d28d9); border-color: transparent; color: #fff; }
+    #vip-root .vip-admin-pane { display: none; }
+    #vip-root .vip-admin-pane.vip-on { display: block; }
+    #vip-root .vip-chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    #vip-root .vip-chip { flex: 1 1 130px; padding: 10px 13px; border: 1px solid var(--vip-line); border-radius: 11px; background: rgba(255, 255, 255, .03); color: #77839a; font-size: 9px; font-weight: 800; }
+    #vip-root .vip-chip b { display: block; margin-top: 3px; color: #f4f7ff; font-size: 16px; }
+    #vip-root .vip-chip b code { color: inherit; }
+    #vip-root .vip-table-wrap { overflow-x: auto; border: 1px solid var(--vip-line); border-radius: 13px; }
+    #vip-root table.vip-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+    #vip-root .vip-table th { padding: 10px 12px; text-align: right; color: #77839a; font-size: 9px; font-weight: 800; white-space: nowrap; border-bottom: 1px solid var(--vip-line); background: rgba(3, 7, 14, .5); }
+    #vip-root .vip-table td { padding: 10px 12px; border-bottom: 1px solid rgba(148, 163, 184, .07); vertical-align: middle; text-align: right; }
+    #vip-root .vip-table tr:last-child td { border-bottom: 0; }
+    #vip-root .vip-table code { color: #c4b5fd; direction: ltr; unicode-bidi: embed; font-weight: 700; }
+    #vip-root .vip-mono { direction: ltr; text-align: left; font-family: ui-monospace, Consolas, monospace; font-size: 10px; }
+    #vip-root .vip-time { direction: ltr; text-align: left; color: #77839a; font-size: 9px; white-space: nowrap; }
+    #vip-root .vip-pre { direction: ltr; text-align: left; white-space: pre-wrap; word-break: break-word; max-width: 320px; max-height: 84px; overflow: auto; color: #9aa9c2; font: 10px/1.7 ui-monospace, Consolas, monospace; }
+    #vip-root .vip-admin-sub { margin: 0 0 10px; color: #b9c3d6; font-size: 11px; font-weight: 800; }
+    #vip-root .vip-admin-gap { margin-top: 18px; }
+    #vip-root .vip-act-row { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+    #vip-root .vip-order-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    #vip-root .vip-order-filter .vip-admin-tab { height: 32px; padding: 0 12px; font-size: 10px; }
+    #vip-root .vip-accounts { display: grid; gap: 9px; margin-top: 18px; }
+    #vip-root .vip-account-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid rgba(148, 163, 184, .1); border-radius: 13px; background: rgba(255, 255, 255, .025); }
+    #vip-root .vip-account-avatar { width: 35px; height: 35px; flex: none; display: grid; place-items: center; border-radius: 11px; background: rgba(139, 92, 246, .12); color: #b79cfa; font-weight: 900; }
+    #vip-root .vip-account-info { flex: 1; min-width: 0; }
+    #vip-root .vip-account-info strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+    #vip-root .vip-account-info small { color: var(--vip-muted); font-size: 9px; }
+    #vip-root .vip-account-actions { display: flex; align-items: center; gap: 7px; }
+    #vip-root .vip-small-button { height: 38px; padding: 0 11px; border: 1px solid var(--vip-line); border-radius: 10px; background: rgba(255, 255, 255, .04); color: #b9c3d6; font-size: 10px; }
+    #vip-root .vip-small-button.vip-danger { color: #fb7185; }
+    #vip-root .vip-small-button:disabled { opacity: .45; cursor: not-allowed; }
+    #vip-root .vip-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+    #vip-root .vip-search { flex: 1 1 240px; min-width: 180px; height: 38px; padding: 0 12px; border: 1px solid var(--vip-line); border-radius: 10px; outline: none; background: rgba(5, 9, 18, .6); color: #f4f7ff; font-size: 11px; }
+    #vip-root .vip-search::placeholder { color: #6f7c94; }
+    #vip-root .vip-search:focus { border-color: rgba(139, 92, 246, .65); box-shadow: 0 0 0 4px rgba(139, 92, 246, .1); }
+    #vip-root .vip-page-size { height: 38px; padding: 0 8px; border: 1px solid var(--vip-line); border-radius: 10px; outline: none; background: rgba(5, 9, 18, .6); color: #b9c3d6; font-size: 10px; font-weight: 800; }
+    #vip-root .vip-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; color: #77839a; font-size: 10px; font-weight: 700; }
+    #vip-root .vip-pager-actions { display: flex; gap: 6px; }
+    #vip-root .vip-instant-options { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 2px 0 12px; }
+    #vip-root .vip-instant-option { padding: 14px 10px; border: 1px solid var(--vip-line); border-radius: 14px; background: rgba(255, 255, 255, .03); color: #b9c3d6; cursor: pointer; transition: border-color .15s, background .15s; }
+    #vip-root .vip-instant-option:hover:not(:disabled) { border-color: rgba(139, 92, 246, .55); background: rgba(139, 92, 246, .08); }
+    #vip-root .vip-instant-option:disabled { opacity: .55; cursor: wait; }
+    #vip-root .vip-instant-option strong { display: block; font: 700 22px "Space Grotesk", "Cairo", sans-serif; color: #a78bfa; }
+    #vip-root .vip-instant-option small { display: block; margin-top: 3px; color: var(--vip-muted); font-size: 9px; font-weight: 800; }
+    #vip-root .vip-instant-result { display: grid; gap: 9px; margin-bottom: 12px; padding: 14px; border: 1px solid rgba(52, 211, 153, .22); border-radius: 14px; background: rgba(52, 211, 153, .05); }
+    #vip-root .vip-copy-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    #vip-root .vip-copy-line > span { flex: none; min-width: 74px; color: #77839a; font-size: 10px; font-weight: 800; }
+    #vip-root .vip-copy-line code { flex: 1 1 200px; direction: ltr; text-align: left; color: #6ee7b7; font: 12px ui-monospace, Consolas, monospace; word-break: break-all; }
+    #vip-root .vip-instant-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    #vip-root .vip-instant-actions .vip-primary { height: 40px; padding: 0 16px; font-size: 11px; }
+    #vip-root .vip-instant-section { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--vip-line); }
+    #vip-root .vip-runs-panel { margin-top: 18px; padding: 24px; }
+    #vip-root .vip-runs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+    #vip-root .vip-run { min-width: 0; padding: 16px; border: 1px solid rgba(148, 163, 184, .1); border-radius: 15px; background: rgba(255, 255, 255, .025); color: #eef2ff; text-align: right; transition: border-color .15s, background .15s; }
+    #vip-root .vip-run:hover, #vip-root .vip-run.vip-selected { border-color: rgba(139, 92, 246, .45); background: rgba(139, 92, 246, .06); }
+    #vip-root .vip-run-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    #vip-root .vip-run-user { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 700 13px "Space Grotesk", "Cairo", sans-serif; direction: ltr; }
+    #vip-root .vip-status { flex: none; display: inline-flex; align-items: center; gap: 5px; padding: 4px 8px; border-radius: 999px; font-size: 9px; font-weight: 800; }
+    #vip-root .vip-status.vip-running { background: rgba(52, 211, 153, .09); color: #6ee7b7; }
+    #vip-root .vip-status.vip-done { background: rgba(56, 189, 248, .09); color: #7dd3fc; }
+    #vip-root .vip-status.vip-failed { background: rgba(251, 113, 133, .09); color: #fda4af; }
+    #vip-root .vip-status.vip-wait { background: rgba(251, 191, 36, .09); color: #fbbf24; }
+    #vip-root .vip-channel { display: block; margin-top: 4px; font-size: 9px; font-weight: 700; color: #8b93a7; white-space: nowrap; }
+    #vip-root .vip-channel.is-notify { color: #7dd3fc; }
+    #vip-root .vip-channel.is-late { color: #fbbf24; }
+    #vip-root .vip-run-course { margin: 9px 0 5px; color: #c0c9da; font-size: 11px; }
+    #vip-root .vip-run-meta { display: flex; justify-content: space-between; gap: 10px; color: #6f7c94; font-size: 9px; }
+    #vip-root .vip-run-password { margin-top: 11px; padding: 8px 10px; border-radius: 9px; background: rgba(3, 7, 14, .5); color: #a9b5c9; font-size: 10px; text-align: left; direction: ltr; word-break: break-all; }
+    #vip-root .vip-run-password b { color: #fbbf24; font-family: ui-monospace, Consolas, monospace; }
+    #vip-root .vip-empty { grid-column: 1 / -1; padding: 40px 18px; border: 1px dashed rgba(148, 163, 184, .13); border-radius: 15px; color: #6f7c94; text-align: center; font-size: 11px; }
+    #vip-root .vip-footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 24px; color: #59667c; font-size: 9px; }
+    @media (max-width: 900px) {
+      #vip-root .vip-layout { grid-template-columns: 1fr; }
+      #vip-root .vip-log { min-height: 260px; }
+      #vip-root .vip-account-form { grid-template-columns: 1fr 1fr; }
+      #vip-root .vip-account-form .vip-primary { width: 100%; }
+    }
+    @media (max-width: 620px) {
+      #vip-root .vip-login-card { padding: 32px 24px; border-radius: 23px; }
+      #vip-root .vip-page { width: min(100% - 24px, 1240px); padding-top: 14px; }
+      #vip-root .vip-header { margin-bottom: 30px; }
+      #vip-root .vip-account-chip { max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      #vip-root .vip-brand small { display: none; }
+      #vip-root .vip-hero { align-items: flex-start; flex-direction: column; gap: 14px; }
+      #vip-root .vip-stats { gap: 8px; }
+      #vip-root .vip-stat { padding: 16px 13px; }
+      #vip-root .vip-stat strong { font-size: 23px; }
+      #vip-root .vip-stat span { font-size: 9px; }
+      #vip-root .vip-stat i { display: none; }
+      #vip-root .vip-solve-panel, #vip-root .vip-live-panel, #vip-root .vip-admin-panel, #vip-root .vip-bulk-panel, #vip-root .vip-runs-panel { padding: 18px; }
+      #vip-root .vip-instant-options { grid-template-columns: 1fr 1fr; }
+      #vip-root .vip-page-size { flex: 1 1 90px; }
+      #vip-root .vip-copy-line > span { min-width: 100%; }
+      #vip-root .vip-two-fields, #vip-root .vip-account-form, #vip-root .vip-runs { grid-template-columns: 1fr; }
+      #vip-root .vip-account-row { flex-wrap: wrap; }
+      #vip-root .vip-account-actions { width: 100%; justify-content: flex-end; }
+      #vip-root .vip-footer { flex-direction: column; gap: 5px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="vip-root">
+    <div class="vip-orb vip-orb-one"></div>
+    <div class="vip-orb vip-orb-two"></div>
+
+    <section id="vip-gate" class="vip-gate">
+      <div class="vip-login-card">
+        <div class="vip-login-logo">Q<small>VIP</small></div>
+        <p class="vip-kicker">Private access · No queue</p>
+        <h1>حل كيريو <span>VIP</span></h1>
+        <p class="vip-login-copy">مساحة خاصة لإدارة الحلول ومتابعة كل خطوة لحظة بلحظة. ادخل بكلمة سر حسابك وابدأ فورًا.</p>
+        <form id="vip-login-form">
+          <div class="vip-field">
+            <label for="vip-login-key">كلمة سر حساب VIP</label>
+            <div class="vip-password">
+              <input id="vip-login-key" class="vip-input" type="password" autocomplete="current-password" placeholder="اكتب كلمة السر" required>
+              <button id="vip-toggle-key" class="vip-reveal" type="button">عرض</button>
+            </div>
+          </div>
+          <button id="vip-login-button" class="vip-primary vip-full" type="submit">دخول للوحة <span>←</span></button>
+          <p id="vip-login-error" class="vip-message vip-error" role="alert"></p>
+        </form>
+        <div class="vip-login-features"><span>تشغيل فوري</span><span>خصوصية لكل حساب</span><span>نشاط مباشر</span></div>
+      </div>
+    </section>
+
+    <div id="vip-dashboard" class="vip-page vip-hidden">
+      <header class="vip-header">
+        <div class="vip-brand">
+          <div class="vip-brand-mark">Q</div>
+          <div><strong>QUREO <span style="color:#a78bfa">Elghazalawy</span></strong><small>PRIVATE SOLVER DASHBOARD</small></div>
+        </div>
+        <div class="vip-header-actions">
+          <span id="vip-account-chip" class="vip-account-chip">VIP</span>
+          <button id="vip-logout" class="vip-secondary" type="button">تسجيل خروج</button>
+        </div>
+      </header>
+
+      <section class="vip-hero">
+        <div>
+          <p id="vip-role-label" class="vip-kicker">VIP WORKSPACE</p>
+          <h1>أهلًا بيك في <span>مساحتك.</span></h1>
+          <p id="vip-limit-note" class="vip-hero-copy">ابدأ حل جديد وتابع العمليات الخاصة بك من مكان واحد.</p>
+        </div>
+        <span class="vip-no-queue">تشغيل مباشر بدون طابور</span>
+      </section>
+
+      <section class="vip-stats" aria-label="إحصائيات الحلول">
+        <div class="vip-stat"><i></i><strong id="vip-stat-running">0</strong><span>حلول شغالة الآن</span></div>
+        <div class="vip-stat"><i></i><strong id="vip-stat-finished">0</strong><span>حلول مكتملة</span></div>
+        <div class="vip-stat"><i></i><strong id="vip-stat-total">0</strong><span>كل العمليات الظاهرة</span></div>
+      </section>
+
+      <div class="vip-layout">
+        <section class="vip-panel vip-solve-panel">
+          <div class="vip-panel-heading">
+            <div><h2>ابدأ حل جديد</h2><p>بيانات الطالب والكورس، والباقي علينا.</p></div>
+            <span class="vip-step">01</span>
+          </div>
+          <form id="vip-solve-form">
+            <div class="vip-two-fields">
+              <div class="vip-field">
+                <label for="vip-student-id">كود الطالب</label>
+                <input id="vip-student-id" class="vip-input" type="text" autocomplete="off" placeholder="كود كيريو" required>
+              </div>
+              <div class="vip-field">
+                <label for="vip-student-password">كلمة سر الطالب</label>
+                <input id="vip-student-password" class="vip-input" type="password" autocomplete="off" placeholder="كلمة سر كيريو" required>
+              </div>
+            </div>
+            <label class="vip-label">نوع المدرسة</label>
+            <div class="vip-track-tabs" style="margin-top:8px">
+              <button class="vip-track vip-active" type="button" data-vip-track="gov">حكومي</button>
+              <button class="vip-track" type="button" data-vip-track="lang">لغات</button>
+            </div>
+            <div class="vip-field">
+              <label for="vip-course">الكورس</label>
+              <select id="vip-course" class="vip-select" required></select>
+            </div>
+            <button id="vip-start-button" class="vip-primary vip-full" type="submit">ابدأ الحل الآن <span>⚡</span></button>
+            <p id="vip-solve-message" class="vip-message" role="status"></p>
+          </form>
+          <p class="vip-inline-note">الطلب بينفذ مباشرة، من غير انتظار أو طابور.</p>
+        </section>
+
+        <section class="vip-panel vip-live-panel">
+          <div class="vip-panel-heading">
+            <div><h2 id="vip-log-title">النشاط المباشر</h2><p>اختار أي عملية من القائمة لعرض تفاصيلها.</p></div>
+            <span class="vip-live-dot">LIVE</span>
+          </div>
+          <pre id="vip-log" class="vip-log">ابدأ عملية أو اختار واحدة من القائمة عشان تشوف النشاط هنا…</pre>
+        </section>
+      </div>
+
+      <section id="vip-bulk-panel" class="vip-panel vip-bulk-panel vip-hidden">
+        <div class="vip-panel-heading">
+          <div><h2>حل جماعي</h2><p>الصق الطلاب بأي ترتيب: ID ثم كلمة السر ثم السنة/الكورس. بدون كورس = أولى جافا.</p></div>
+          <span class="vip-admin-badge">ADMIN ONLY</span>
+        </div>
+        <div class="vip-field">
+          <label for="vip-bulk-input">الطلاب والكورسات</label>
+          <textarea id="vip-bulk-input" class="vip-bulk-input" spellcheck="false" placeholder="4539052&#10;EroesroAW&#10;اولي&#10;40539532&#10;ESPOEWA"></textarea>
+        </div>
+        <div class="vip-bulk-actions">
+          <button id="vip-bulk-start" class="vip-primary" type="button">بدء الحل الجماعي ⚡</button>
+          <button id="vip-bulk-clear" class="vip-secondary" type="button">مسح</button>
+        </div>
+        <p id="vip-bulk-message" class="vip-message" role="status"></p>
+        <div id="vip-bulk-results" class="vip-bulk-results"></div>
+      </section>
+
+      <section id="vip-admin-panel" class="vip-panel vip-admin-panel vip-hidden">
+        <div class="vip-panel-heading">
+          <div><h2>لوحة الأدمن</h2><p>الطلبات والحسابات والمدفوعات والعمليات — كلها من مكان واحد.</p></div>
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <button id="vip-free-toggle" class="vip-small-button" type="button" title="فتح أو قفل الحل المجاني للطلاب">الحل المجاني: —</button>
+            <span class="vip-admin-badge">MAIN ADMIN</span>
+          </div>
+        </div>
+        <nav class="vip-admin-tabs" id="vip-admin-tabs">
+          <button class="vip-admin-tab vip-on" data-vip-admin-tab="orders" type="button">🧾 الطلبات</button>
+          <button class="vip-admin-tab" data-vip-admin-tab="accounts" type="button">👑 حسابات VIP</button>
+          <button class="vip-admin-tab" data-vip-admin-tab="sms" type="button">📩 الدفع / SMS</button>
+          <button class="vip-admin-tab" data-vip-admin-tab="runs" type="button">⚡ كل العمليات</button>
+        </nav>
+
+        <div class="vip-admin-pane vip-on" data-vip-admin-pane="orders">
+          <div class="vip-chip-row" id="vip-overview-chips"></div>
+          <div class="vip-tools">
+            <input id="vip-order-search" class="vip-search" type="search" placeholder="ابحث بالكود أو رقم المحوّل أو الباقة…" aria-label="بحث في الطلبات">
+            <select id="vip-order-page-size" class="vip-page-size" aria-label="عدد الطلبات في الصفحة">
+              <option value="10" selected>10 / صفحة</option>
+              <option value="20">20 / صفحة</option>
+              <option value="30">30 / صفحة</option>
+              <option value="40">40 / صفحة</option>
+              <option value="50">50 / صفحة</option>
+            </select>
+          </div>
+          <div class="vip-order-filter" id="vip-order-filter">
+            <button class="vip-admin-tab vip-on" data-vip-order-filter="all" type="button">الكل</button>
+            <button class="vip-admin-tab" data-vip-order-filter="pending" type="button">معلّقة 💛</button>
+            <button class="vip-admin-tab" data-vip-order-filter="approved" type="button">متأكدة ✓</button>
+            <button class="vip-admin-tab" data-vip-order-filter="expired" type="button">منتهية</button>
+          </div>
+          <div class="vip-table-wrap">
+            <table class="vip-table">
+              <thead><tr><th>الكود</th><th>الباقة</th><th>السعر</th><th>رقم المحوّل</th><th>الحالة</th><th>الإنشاء</th><th>حلول</th><th></th></tr></thead>
+              <tbody id="vip-orders-body"></tbody>
+            </table>
+          </div>
+          <p class="vip-empty" id="vip-orders-empty" style="display: none;">مفيش طلبات هنا</p>
+          <div class="vip-pager" id="vip-orders-pager"></div>
+        </div>
+
+        <div class="vip-admin-pane" data-vip-admin-pane="accounts">
+          <div class="vip-instant-section">
+            <div class="vip-panel-heading">
+              <div><h2>إنشاء VIP فوري</h2><p>اختار عدد الطلاب — الحساب يتعمل في ثانية، وتنسخ الرابط وكلمة السر للعميل.</p></div>
+              <span class="vip-admin-badge">INSTANT</span>
+            </div>
+            <div class="vip-instant-options" id="vip-instant-options">
+              <button class="vip-instant-option" data-vip-instant="5" type="button"><strong>5</strong><small>طلاب · 50 ج</small></button>
+              <button class="vip-instant-option" data-vip-instant="10" type="button"><strong>10</strong><small>طلاب · 80 ج</small></button>
+              <button class="vip-instant-option" data-vip-instant="35" type="button"><strong>35</strong><small>طلاب · 250 ج</small></button>
+              <button class="vip-instant-option" data-vip-instant="50" type="button"><strong>50</strong><small>طلاب · 325 ج</small></button>
+            </div>
+            <div id="vip-instant-result" class="vip-instant-result vip-hidden"></div>
+            <p id="vip-instant-message" class="vip-message" role="status"></p>
+          </div>
+          <form id="vip-account-form" class="vip-account-form">
+            <div class="vip-field"><label for="vip-new-name">اسم الحساب</label><input id="vip-new-name" class="vip-input" type="text" maxlength="60" placeholder="مثال: حساب أحمد" required></div>
+            <div class="vip-field"><label for="vip-new-password">كلمة سر جديدة</label><input id="vip-new-password" class="vip-input" type="text" minlength="12" maxlength="128" autocomplete="off" placeholder="12 حرف على الأقل" required></div>
+            <div class="vip-field"><label for="vip-new-limit">أقصى تشغيل</label><input id="vip-new-limit" class="vip-input" type="number" min="1" max="60" value="2" required></div>
+            <div class="vip-field"><label for="vip-new-max-accounts">MAX ACCOUNTS</label><input id="vip-new-max-accounts" class="vip-input" type="number" min="0" max="100000" value="0" title="0 = غير محدود" required></div>
+            <button id="vip-create-button" class="vip-primary" type="submit">إنشاء حساب +</button>
+          </form>
+          <p id="vip-account-message" class="vip-message" role="status"></p>
+          <div class="vip-tools">
+            <input id="vip-account-search" class="vip-search" type="search" placeholder="ابحث باسم حساب VIP…" aria-label="بحث في حسابات VIP">
+            <select id="vip-account-page-size" class="vip-page-size" aria-label="عدد الحسابات في الصفحة">
+              <option value="10" selected>10 / صفحة</option>
+              <option value="20">20 / صفحة</option>
+              <option value="30">30 / صفحة</option>
+              <option value="40">40 / صفحة</option>
+              <option value="50">50 / صفحة</option>
+            </select>
+            <button id="vip-prune-accounts" class="vip-small-button" type="button" title="حذف كل حساب خلص عدده (10/10، 20/20، …)">🧹 حذف المنتهية</button>
+          </div>
+          <div id="vip-accounts" class="vip-accounts"></div>
+          <div class="vip-pager" id="vip-accounts-pager"></div>
+        </div>
+
+        <div class="vip-admin-pane" data-vip-admin-pane="sms">
+          <h3 class="vip-admin-sub">📥 آخر رسائل وصلت للويبهوك</h3>
+          <div class="vip-table-wrap">
+            <table class="vip-table">
+              <thead><tr><th>الوقت</th><th>المصدر</th><th>التوكن</th><th>النص</th></tr></thead>
+              <tbody id="vip-sms-hits"></tbody>
+            </table>
+          </div>
+          <p class="vip-empty" id="vip-sms-hits-empty" style="display: none;">مفيش رسائل لسه</p>
+          <h3 class="vip-admin-sub vip-admin-gap">⚠️ تحويلات ملهاش طلب مطابق</h3>
+          <div class="vip-table-wrap">
+            <table class="vip-table">
+              <thead><tr><th>الوقت</th><th>الرقم</th><th>المبالغ</th><th>السبب</th></tr></thead>
+              <tbody id="vip-sms-unmatched"></tbody>
+            </table>
+          </div>
+          <p class="vip-empty" id="vip-sms-unmatched-empty" style="display: none;">مفيش حاجة غير مطابقة 🎉</p>
+        </div>
+
+        <div class="vip-admin-pane" data-vip-admin-pane="runs">
+          <h3 class="vip-admin-sub">⚡ حلول الحل السريع</h3>
+          <div class="vip-table-wrap">
+            <table class="vip-table">
+              <thead><tr><th>الكود</th><th>الكورس</th><th>الطالب</th><th>الحالة</th><th>بدأ</th><th></th></tr></thead>
+              <tbody id="vip-admin-quick-runs"></tbody>
+            </table>
+          </div>
+          <p class="vip-empty" id="vip-admin-quick-empty" style="display: none;">مفيش حلول دلوقتي</p>
+          <h3 class="vip-admin-sub vip-admin-gap">👑 حلول VIP</h3>
+          <div class="vip-table-wrap">
+            <table class="vip-table">
+              <thead><tr><th>المالك</th><th>الطالب</th><th>الكورس</th><th>الحالة</th><th>بدأ</th><th></th></tr></thead>
+              <tbody id="vip-admin-vip-runs"></tbody>
+            </table>
+          </div>
+          <p class="vip-empty" id="vip-admin-vip-empty" style="display: none;">مفيش حلول VIP دلوقتي</p>
+        </div>
+      </section>
+
+      <section class="vip-panel vip-runs-panel">
+        <div class="vip-panel-heading">
+          <div><h2 id="vip-runs-title">عملياتك الحالية</h2><p id="vip-runs-subtitle">آخر العمليات والنشاط الخاص بك فقط — بدون عرض كلمات السر.</p></div>
+          <button id="vip-refresh" class="vip-secondary" type="button">تحديث ↻</button>
+        </div>
+        <div id="vip-runs" class="vip-runs"><div class="vip-empty">لسه مفيش عمليات. ابدأ أول حل من الأعلى.</div></div>
+      </section>
+
+      <footer class="vip-footer"><span>QUREO VIP · PRIVATE WORKSPACE</span><span>تشغيل أسرع. متابعة أوضح. تحكم كامل.</span></footer>
+    </div>
+  </div>
+
+  <div id="public-site">
+  <div class="backdrop" aria-hidden="true">
+    <div class="aurora aurora-a"></div>
+    <div class="noise"></div>
+  </div>
+
+  <!-- STEP 0a: school type -->
+  <div id="category-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="category-title">
+    <div class="modal-card category-panel">
+      <div class="modal-kicker" data-i18n="categoryKicker">أهم خطوة — ظبطها صح</div>
+      <h2 id="category-title" data-i18n="categoryTitle">حسابك على كيريو بالعربي ولا بالإنجليزي؟</h2>
+      <p class="modal-intro" data-i18n="categoryIntro">دي أهم خطوة! لو حسابك بالعربي اختار «حكومي»، ولو بالإنجليزي اختار «لغات». الاختيار الغلط بيخلي الحل يقف من أوله.</p>
+      <div class="category-grid two-col">
+        <button class="category-option" id="category-government" type="button">
+          <span class="category-code">AR</span>
+          <span class="category-text"><strong data-i18n="govCard">حكومي · Government</strong><small data-i18n="govCardDesc">حساب كيريو بالعربي — أولى وتانية بكالوريا</small></span>
+          <span class="category-arrow">→</span>
+        </button>
+        <button class="category-option" id="category-language" type="button">
+          <span class="category-code">EN</span>
+          <span class="category-text"><strong data-i18n="langCard">لغات · Language Schools</strong><small data-i18n="langCardDesc">حساب كيريو بالإنجليزي — JavaScript وPython وFinancial Literacy</small></span>
+          <span class="category-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 0b: year -->
+  <div id="year-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="year-title">
+    <div class="modal-card compact-card">
+      <div class="modal-kicker" id="year-kicker">مدارس لغات</div>
+      <h2 id="year-title" data-i18n="yearTitle">اختار سنتك</h2>
+      <p id="year-body">سنتك بتحدد الكورس وعدد الفصول الصحيح.</p>
+      <div class="year-buttons">
+        <button class="year-choice" id="year-one" type="button"><strong id="year-one-title">أولى بكالوريا</strong><small id="year-one-desc">JavaScript · 42 فصل</small></button>
+        <button class="year-choice" id="year-two" type="button"><strong id="year-two-title">تانية بكالوريا</strong><small id="year-two-desc">JavaScript وPython وFinancial Literacy</small></button>
+      </div>
+      <button id="year-back" class="button button-ghost full-width" type="button" data-i18n="yearBack">رجوع لنوع المدرسة</button>
+    </div>
+  </div>
+
+  <!-- Wrong-course popup -->
+  <div id="mismatch-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="mismatch-title">
+    <div class="modal-card compact-card mismatch-card">
+      <div class="mismatch-icon">!</div>
+      <div class="modal-kicker" data-i18n="mismatchKicker">اختيار غير صحيح</div>
+      <h2 id="mismatch-title">انت اخترت لغات أو حكومي بالغلط 😅</h2>
+      <p id="mismatch-body">الحساب ده مش مشترك في الكورس اللي اخترته، عشان كده الحل وقف. دوس «تعديل الاختيار» واختار نوع مدرستك الصح.</p>
+      <button id="mismatch-retry" class="button button-primary full-width" type="button" data-i18n="mismatchRetry">تعديل الاختيار</button>
+      <button id="mismatch-close" class="button button-ghost full-width" type="button" data-i18n="mismatchClose">إغلاق</button>
+    </div>
+  </div>
+
+  <!-- Invalid-login correction popup -->
+  <div id="credentials-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="credentials-title">
+    <div class="modal-card compact-card mismatch-card credentials-card">
+      <div class="mismatch-icon">!</div>
+      <h2 id="credentials-title" data-i18n="credentialsTitle">معلوماتك غلط! اكتب الكود صح:</h2>
+      <form id="credentials-form">
+        <div class="credentials-fields">
+          <label for="credential-code" data-i18n="credentialCode">الكود</label>
+          <input id="credential-code" name="code" type="text" autocomplete="username">
+          <label for="credential-password" data-i18n="credentialPassword">الباسورد</label>
+          <input id="credential-password" name="password" type="password" autocomplete="current-password">
+        </div>
+        <p class="credentials-track-title" data-i18n="credentialsTrack">متاكد حكومي او لغات؟</p>
+        <div class="year-buttons credentials-track-options">
+          <button class="year-choice credentials-track-option" type="button" data-credential-track="government" aria-pressed="false"><strong data-i18n="trackGov">حكومي</strong></button>
+          <button class="year-choice credentials-track-option" type="button" data-credential-track="language" aria-pressed="false"><strong data-i18n="trackLang">لغات</strong></button>
+        </div>
+        <p id="credential-error" class="status" role="alert"></p>
+        <button id="credential-retry" class="button button-primary full-width" type="submit" data-i18n="credentialRetry">أبدا الحل مباشرة (بدون طابور)</button>
+        <button id="credentials-close" class="button button-ghost full-width" type="button" data-i18n="mismatchClose">إغلاق</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FAST SOLVING: Vodafone Cash order -> auto-approve -> quick solve -->
+  <div id="quick-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="quick-modal-title">
+    <div class="modal-card quick-card">
+      <button id="quick-close" class="quick-close" type="button" aria-label="إغلاق">✕</button>
+      <div class="modal-kicker">فودافون كاش · تأكيد تلقائي</div>
+
+      <div id="quick-wallet-box" class="quick-wallet">
+        <small>حوّل على رقم فودافون كاش ده</small>
+        <div class="quick-wallet-row">
+          <strong id="quick-wallet-number">01035399218</strong>
+          <button id="quick-copy-wallet" class="button button-secondary" type="button">نسخ 📋</button>
+        </div>
+      </div>
+
+      <div class="quick-step" data-quick-step="vip-packs">
+        <h2>اختار باقة VIP</h2>
+        <p class="quick-plan-hint">حساب واحد على /vip0101 بيحل عدد طلاب على قد الباقة — كل طالب بيكورسه كامل، من غير طابور.</p>
+        <div class="quick-packs">
+          <button class="quick-pack" type="button" data-quick-pack="vip5"><strong>5 طلاب</strong><small>50 جنيه</small><span>10 ج / طالب</span></button>
+          <button class="quick-pack" type="button" data-quick-pack="vip10"><strong>10 طلاب</strong><small>80 جنيه</small><span>8 ج / طالب</span></button>
+          <button class="quick-pack" type="button" data-quick-pack="vip35"><strong>35 طالب</strong><small>250 جنيه</small><span>≈7 ج / طالب</span></button>
+          <button class="quick-pack" type="button" data-quick-pack="vip50"><strong>50 طالب</strong><small>325 جنيه</small><span>6.5 ج / طالب</span></button>
+          <button class="quick-pack popular" type="button" data-quick-pack="vip100"><strong>100 طالب</strong><small>600 جنيه</small><span>أوفر باقة · 6 ج / طالب</span></button>
+        </div>
+      </div>
+
+      <div class="quick-step active" data-quick-step="order">
+        <h2 id="quick-modal-title">ادفع وابدأ في دقيقة</h2>
+        <div class="quick-plan-summary">
+          <span id="quick-plan-name">كورس واحد</span>
+          <strong id="quick-plan-price">15 جنيه</strong>
+        </div>
+        <p id="quick-plan-hint" class="quick-plan-hint"></p>
+        <form id="quick-order-form">
+          <label for="quick-phone">رقم فودافون اللي هتحوّل منه</label>
+          <input id="quick-phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx">
+          <p class="wizard-hint">التأكيد تلقائي 100%: أول ما التحويل يوصل رقم فودافون اللي كتبته، الطلب بيتأكد لوحده. ولو حوّلت قبل ما تعمل الطلب — عادي: اعمل الطلب بنفس الرقم وهيتأكد على طول. متكتبش غير رقم فودافون كاش صح. بعد إنشاء الطلب عندك 45 دقيقة بس للتحويل — بعدها الطلب بينتهي.</p>
+          <p id="quick-order-message" class="status" role="status"></p>
+          <button id="quick-order-button" class="button button-primary full-width" type="submit"><span>حوّلت — إنشاء الطلب</span> <span>→</span></button>
+        </form>
+      </div>
+
+      <div class="quick-step" data-quick-step="pending">
+        <h2>استنى التأكيد التلقائي…</h2>
+        <p class="quick-code-line">كود طلبك: <strong id="quick-code-display" class="quick-code">QS-----</strong><small>احفظه لو قفلت الصفحة</small></p>
+        <div class="quick-wait">
+          <span class="quick-spinner" aria-hidden="true"></span>
+          <p>بنراقب وصول تحويل <b id="quick-pending-price"></b> جنيه على <b id="quick-pending-wallet">01035399218</b>… أول ما يوصل، الصفحة هتتقل للخطوة اللي بعد كده لوحدها.</p>
+        </div>
+        <p id="quick-countdown" class="quick-countdown" role="timer"></p>
+        <p id="quick-pending-note" class="status" role="status"></p>
+      </div>
+
+      <div class="quick-step" data-quick-step="expired">
+        <h2>انتهت صلاحية الطلب</h2>
+        <p id="quick-expired-text"></p>
+        <button id="quick-expired-retry" class="button button-primary full-width" type="button">طلب جديد — لو حوّلت، هيتفعّل فورًا</button>
+      </div>
+
+      <div class="quick-step" data-quick-step="solve">
+        <h2>اتأكد الدفع ✓ ابدأ الحل</h2>
+        <p class="quick-approved-note">الباقة: <b id="quick-approved-plan"></b></p>
+        <form id="quick-solve-form">
+          <label>نوع حسابك على كيريو</label>
+          <div class="quick-track-tabs">
+            <button class="quick-track active" type="button" data-quick-track="gov">حكومي (عربي)</button>
+            <button class="quick-track" type="button" data-quick-track="lang">لغات (إنجليزي)</button>
+          </div>
+          <label for="quick-course">الكورس</label>
+          <select id="quick-course" class="quick-select"></select>
+          <div class="quick-two">
+            <div><label for="quick-id">كود الطالب</label><input id="quick-id" type="text" autocomplete="off" placeholder="كود كيريو"></div>
+            <div><label for="quick-password">كلمة السر</label><input id="quick-password" type="password" autocomplete="off" placeholder="كلمة سر كيريو"></div>
+          </div>
+          <p id="quick-solve-message" class="status" role="status"></p>
+          <button id="quick-solve-button" class="button button-primary full-width" type="submit"><span>ابدأ الحل السريع</span> <span>⚡</span></button>
+        </form>
+      </div>
+
+      <div class="quick-step" data-quick-step="accounts">
+        <h2>حسابك اهو 🎉</h2>
+        <p class="quick-approved-note" id="quick-accounts-plan"></p>
+        <p id="quick-accounts-solves" class="quick-solves"></p>
+        <div class="quick-pass-card">
+          <small>كلمة السر — دي اللي هتكتبها في صفحة /vip0101</small>
+          <div class="quick-pass-row">
+            <code id="quick-password-display">—</code>
+            <button id="quick-accounts-copy" type="button">نسخ</button>
+          </div>
+        </div>
+        <p id="quick-accounts-message" class="status" role="status"></p>
+        <p class="wizard-hint">سجّل دخول من صفحة <b>/vip0101</b> بكلمة السر دي. جوّه اللوحة: كود كل طالب + كلمة سر كيريو بتاعته + الكورس — الحل بيبدأ على طول. تقدر تجيب كلمة السر تاني أي وقت بنفس كود الطلب.</p>
+        <a class="button button-secondary full-width" href="/vip0101"><span>دخول VIP</span> <span>←</span></a>
+      </div>
+
+      <div class="quick-step" data-quick-step="run">
+        <div class="quick-run-head">
+          <h2>الحل السريع شغّال</h2>
+          <span id="quick-run-badge" class="running-badge active">شغّال الآن</span>
+        </div>
+        <p class="quick-run-course">الكورس: <b id="quick-run-course"></b></p>
+        <div class="quick-run-stats">
+          <div class="quick-run-stat"><strong id="quick-run-count">0</strong><span>فصول اتخلصت</span></div>
+        </div>
+        <pre id="quick-run-log" class="quick-log">بنجهّز الحل… لحظات ويبدأ النشاط هنا.</pre>
+        <p id="quick-run-hint" class="wizard-hint">تقدر تقفل المودال — الحل شغال على السيرفر. ترجع تتابع أي وقت من زر «متابعة الطلب» أو بإدخال كود الطلب.</p>
+        <p id="quick-run-final" class="quick-final hidden"></p>
+        <button id="quick-retry-solve" class="button button-primary full-width hidden" type="button">🔄 جرب تاني ببيانات صح</button>
+        <button id="quick-new-order" class="button button-ghost full-width hidden" type="button">طلب جديد</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="topbar-wrap">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="QUREO Elghazalawy home">
+        <span class="brand-symbol">Q</span>
+        <span class="brand-text"><strong>QUREO Elghazalawy</strong><small>SOLVER</small></span>
+      </a>
+      <div class="topbar-links">
+        <span class="live-pill" aria-hidden="true"><i></i>متصل</span>
+        <button class="theme-toggle" type="button" aria-label="الوضع الليلي / الفاتح — Light / Dark">
+          <span class="icon-sun" aria-hidden="true">☀</span>
+          <span class="icon-moon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span></span><b data-i18n="heroKicker">منصة واحدة. كل الكورسات.</b></div>
+        <h1><span data-i18n="heroLine1">اختارها. حلها.</span> <em data-i18n="heroLine2">وتقدّم للأمام.</em></h1>
+        <p data-i18n="heroBody">حل سريع ودقيق للكورسات مع نشاط مباشر خاص بكل جلسة. من غير زحمة—بس الكورسات المناسبة لسنتك.</p>
+        <div class="hero-tags"><span data-i18n="tagActive">30 حل نشط</span><span data-i18n="tagQueue">طابور ذكي</span><span data-i18n="tagProgress">تقدم مباشر</span></div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel login-panel">
+        <div class="panel-heading"><span class="section-number">01</span><div><h2 data-i18n="startTitle">ابدأ حل جديد</h2><p data-i18n="startSubtitle">أربع خطوات سريعة. والباقي علينا.</p></div></div>
+        <form id="solve-form">
+          <div class="wizard-step active" data-step="1">
+            <label data-i18n="courseLabel">اختار الكورس</label>
+            <button type="button" id="selection-pill" class="selection-pill" title="تغيير نوع المدرسة أو السنة"></button>
+            <div id="course-cards" class="course-grid"></div>
+            <p id="course-desc" class="wizard-hint" data-i18n="courseDesc">هتظهر بس الكورسات المناسبة لسنتك. دوس على البطاقة اللي فوق لو عايز تغيّر نوع المدرسة أو السنة.</p>
+          </div>
+          <div class="wizard-step" data-step="2">
+            <label for="phone" data-i18n="phoneLabel">رقم الموبايل</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="05xxxxxxxx" data-i18n-placeholder="phonePlaceholder">
+            <p class="wizard-hint" data-i18n="phoneHint">هنستخدمه بس لو احتجنا نتواصل معاك بخصوص جلستك.</p>
+          </div>
+          <div class="wizard-step" data-step="3">
+            <label for="code" data-i18n="codeLabel">كود الطالب</label>
+            <input id="code" name="code" type="text" autocomplete="one-time-code" placeholder="اكتب كود الطالب بتاع كيريو" data-i18n-placeholder="codePlaceholder">
+            <p class="wizard-hint" data-i18n="codeHint">كود الطالب المخصص لحسابك على كيريو.</p>
+          </div>
+          <div class="wizard-step" data-step="4">
+            <label for="password" data-i18n="passwordLabel">كلمة السر</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="اكتب كلمة سر كيريو" data-i18n-placeholder="passwordPlaceholder">
+            <p class="wizard-hint" data-i18n="passwordHint">بياناتك بتتستخدم بس لإكمال الكورس اللي اخترته.</p>
+            <p id="confirm-note" class="confirm-note"></p>
+          </div>
+          <div class="wizard-nav">
+            <span id="step-indicator" class="step-indicator">الخطوة 1 من 4</span>
+            <div class="wizard-actions">
+              <button id="btn-back" class="button button-ghost" type="button" style="display:none" data-i18n="backButton">رجوع</button>
+              <button id="btn-next" class="button button-primary" type="button"><span data-i18n="nextButton">التالي</span> <span>→</span></button>
+              <button id="start-button" class="button button-primary" type="submit" disabled style="display:none"><span data-i18n="startButton">ابدأ الحل</span> <span>→</span></button>
+            </div>
+          </div>
+          <p id="status" class="status" role="status" data-i18n="readyStatus">جاهزين لما تكون جاهز.</p>
+        </form>
+        <div class="privacy-note"><span>●</span><b data-i18n="privacyNote">حل واحد نشط لكل جهاز</b></div>
+      </div>
+
+      <div class="panel progress-panel">
+        <div class="panel-heading progress-heading"><span class="section-number">02</span><div><h2 data-i18n="progressTitle">التقدم المباشر</h2><p data-i18n="progressSubtitle">تحديثات من جلستك الحالية بس.</p></div><span id="running-badge" class="running-badge" data-i18n="idle">متوقف</span></div>
+        <div class="stats">
+          <div class="stat"><strong id="completed-count">0</strong><span data-i18n="completedItems">عناصر مكتملة</span></div>
+          <div class="stat"><strong id="last-chapter">—</strong><span data-i18n="latestChapter">آخر فصل</span></div>
+          <div class="stat"><strong id="running" data-i18n="idle">متوقف</strong><span data-i18n="solverStatus">حالة الحل</span></div>
+        </div>
+        <div class="activity-section">
+          <div class="section-title"><h3><span class="live-dot"></span><b data-i18n="activityTitle">النشاط المباشر</b></h3><span id="activity-count">0 أحداث</span></div>
+          <div id="activity" class="activity" aria-live="polite"><div class="empty compact" data-i18n="emptyActivity">نشاط جلستك هيظهر هنا.</div></div>
+        </div>
+        <div class="chapters-section">
+          <div class="section-title"><h3 data-i18n="chaptersTitle">الفصول</h3><span data-i18n="sessionOnly">جلستك بس</span></div>
+          <div id="chapters" class="chapters"><div class="empty" data-i18n="emptyChapters">لسه مفيش تقدم للحساب ده.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-mark" aria-hidden="true">Q</div>
+      <div class="footer-line"><span>QUREO Elghazalawy</span><span>انتظار أقل. تعلم أكتر.</span></div>
+    </footer>
+  </main>
+  </div>
+  <script src="/app.js?v=39"></script>
+  <script src="/quick.js?v=10"></script>
+</body>
+</html>
